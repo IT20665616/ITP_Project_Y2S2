@@ -61,7 +61,7 @@ function Wishlist() {
                                 <Link to="/products" className="btn btn-warning">
                                     Continue Shopping
                                 </Link>
-                            </div>
+                            </div><br/><br/>
 
                        
                     <Footer />
