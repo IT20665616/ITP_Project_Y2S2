@@ -92,42 +92,56 @@ function Cart() {
     return (
         <div>
             <Header />
-            <div className="container py-5 ">
-                <table id="my-table" class="table table-hover">
-                    <thead className="table-active">
+            <div className="info-box6" style={{ marginTop: 50, backgroundColor:'whitesmoke' }} >
+                <div className="font">
+                <center><h3>My Cart</h3><br/></center>
+                    <table class="table">
+                        <thead className="table-active">
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Product Code</th>
+                                <th>Quantity</th>
+                                <th>Image</th>
+                                <th>Price</th>
+                                <th>Remove item</th>
+                            </tr>
+                        </thead>
+                        {cartItems.map(Cart =>
+                            <tr>
+                                <td >{Cart.productName}</td>
+                                <td >#{Cart.productCode}</td>
+                                <td>
+                                    <button onClick={() => decrementCount(Cart._id)} style={{ color: '#000000' }} className="btn btn-dark">-</button>{/*Decrement*/}
+                                    <label className="text-center fs-5 fw-bolder" name="qty" style={{ width: 30, height: 30 }} value={Cart.quantity} >{Cart.quantity}</label>
+                                    <button onClick={() => incrementCount(Cart._id)} style={{ color: '#000000', marginLeft: 5 }} className="btn btn-dark">+</button>{/*Decrement*/}
+                                </td>
+                                <td>
+                                    <img
+                                        src={Cart.image}
+                                        alt={Cart.image}
+                                        height="200px"
+                                        width="200px"
+                                    />
+                                </td>
+                                <td>{Cart.price}</td>
+                                <td><button className="btn btn-danger" style={{ color: '#e80707' }} onClick={() => deleteItem(Cart._id)}>REMOVE</button></td>
+                            </tr>
+                        )}
                         <tr>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Remove item</th>
+                            <td>total</td>
+                            <td>{calculateTot()}</td>
                         </tr>
-                    </thead>
-                    {cartItems.map(Cart =>
-                        <tr>
-                            <td >{Cart.productName}</td>
-                            <td>
-                                <button onClick={() => decrementCount(Cart._id)} style={{ color: '#000000' }} className="btn btn-dark">-</button>{/*Decrement*/}
-                                <label className="text-center fs-5 fw-bolder" name="qty" style={{ width: 30, height: 30 }} value={Cart.quantity} >{Cart.quantity}</label>
-                                <button onClick={() => incrementCount(Cart._id)} style={{ color: '#000000', marginLeft: 5 }} className="btn btn-dark">+</button>{/*Decrement*/}
-                            </td>
-                            <td>{Cart.price}</td>
-                            <td><button className="btn btn-danger" style={{ color: '#e80707' }} onClick={() => deleteItem(Cart._id)}>REMOVE</button></td>
-                        </tr>
-                    )}
-                    <tr>
-                        <td>total</td>
-                        <td>{calculateTot()}</td>
-                    </tr>
-                </table>
-                <Link to="/payment">
-                    <div className="d-grid" style={{ marginLeft: 100, marginRight: 100, marginTop: 20 }}>
-                        <input type="button" value="Checkout" className="btn btn-success" />
+                    </table>
+                    <Link to="/payment">
+                        <div className="d-grid" style={{ marginLeft: 100, marginRight: 100, marginTop: 20 }}>
+                            <input type="button" value="Checkout" className="btn btn-success" />
 
-                    </div>
-                </Link>
-                <div className="d-grid" style={{ marginLeft: 100, marginRight: 100, marginTop: 20 }}>
-                    <input type="button" value="Print Pdf" onClick={() => jsPdfGenerator()} className="btn btn-warning" />
+                        </div>
+                    </Link>
                 </div>
+            </div>
+            <div className="d-grid" style={{ marginLeft: 100, marginRight: 100, marginTop: 20 }}>
+                <input type="button" value="Print Pdf" onClick={() => jsPdfGenerator()} className="btn btn-warning" /><br /><br />
             </div>
             <Footer />
         </div>

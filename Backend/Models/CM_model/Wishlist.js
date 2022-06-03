@@ -4,15 +4,24 @@ const wishlistSchema = mongoose.Schema({
     productName: {
         type: String
     },
-    price:{
+
+    productCode: {
+        type: String
+    },
+
+    image: {
+        type: String,
+    },
+    
+    price: {
         type: Number
     },
-    userId:{
-      type: String
-  }
+    userId: {
+        type: String
+    }
 
-},{ timesamps: true})
+}, { timesamps: true })
 
 const Wishlist = mongoose.model('Wishlist', wishlistSchema);
 
-module.exports = {Wishlist}
+module.exports = { Wishlist }

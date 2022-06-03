@@ -60,8 +60,8 @@ function Header() {
                 <Link to="/cart" class="nav-link">
                   <img
                     src={require("./images/cart.png")}
-                    height="30px"
-                    width="30px"
+                    height="25px"
+                    width="25px"
                   />
                 </Link>
 
@@ -69,16 +69,16 @@ function Header() {
                 <Link to="/wishlist" class="nav-link">
                   <img
                     src={require("./images/wishlist.png")}
-                    height="30px"
-                    width="30px"
+                    height="25px"
+                    width="25px"
                   />
                 </Link>
 
                 <Link to="/profileRC" class="nav-link">
                   <img
-                    src={require("./images/user.png")}
-                    height="80px"
-                    width="80px"
+                    src={require("./images/user-profile.png")}
+                    height="70px"
+                    width="70px"
                   />
                 </Link>
 

@@ -23,10 +23,12 @@ function Products() {
     getProducts();
   }, []);
 
-  function addToCart(pro_id,pro_name,price) {
+  function addToCart(pro_id,pro_name,pro_code,price,img) {
     const userId = localStorage.getItem("userId");
     const newCart ={
       productName:pro_name,
+      productCode:pro_code,
+      image:img,
       product_id:pro_id,
       price:price,
       discount:"20",
@@ -42,10 +44,12 @@ function Products() {
     )
   }
   
-  function addToWish(pro_id,pro_name,price) {
+  function addToWish(pro_id,pro_name,pro_code,price,img) {
     const userId = localStorage.getItem("userId");
     const newWish ={
       productName:pro_name,
+      productCode:pro_code,
+      image:img,
       product_id:pro_id,
       price:price,
       userId:userId
@@ -80,8 +84,8 @@ function Products() {
                     </td>
                     <td>
                       <br />
-                      <div className="h1">
-                        {val.product_name} {val.product_code}
+                      <div className="h3">
+                        {val.product_name} #{val.product_code}
                       </div>
                       <br />
                       {val.description}
@@ -107,7 +111,7 @@ function Products() {
                       ></input>
                       <br />
                       <br />
-                        <button className="btn1" onClick={() => addToCart(val._id,val.product_name,val.price)}>
+                        <button className="btn1" onClick={() => addToCart(val._id,val.product_name,val.product_code,val.price,val.imageUrl)}>
                           <span>
                             Add to cart{" "}
                             <img
@@ -117,7 +121,7 @@ function Products() {
                             />
                           </span>
                         </button>
-                        <button className="btn1" onClick={() => addToWish(val._id,val.product_name,val.price)}>
+                        <button className="btn1" onClick={() => addToWish(val._id,val.product_name,val.product_code,val.price,val.imageUrl)}>
                           <span>
                             Add to wishlist{" "}
                             <img

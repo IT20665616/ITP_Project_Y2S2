@@ -35,6 +35,7 @@ function LoginRC() {
         <div className="container shadow my-5">
             <div className="row justify-content-end">
                 <div className="col-md-5 d-flex flex-column align-items-center text-white justify-content-center form order-2">
+                    <br/><br/>
                     <h1 className="display-4 fw-bolder">Hello there..</h1>
                     <br/><br/>
                     <p className="mb-4">Don't have an account yet ?</p>
@@ -44,6 +45,7 @@ function LoginRC() {
                     >
                         Register
                     </Link>
+                    <br/><br/>
                 </div>
                 <div className="col-md-6 p-5">
                 <div className="mb-3 text-center">

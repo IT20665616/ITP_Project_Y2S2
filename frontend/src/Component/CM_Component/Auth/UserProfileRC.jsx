@@ -44,9 +44,9 @@ function UserProfileRC() {
                 <div className='row'>
                     <div className='col'>
                         <div style={{marginLeft:100, marginTop:100}}>
-                            <img src={require("../../HP_Component/images/logo.jpeg")} 
-                            width="310px"
-                            height="300px"
+                            <img src={require("../../HP_Component/images/userp.jpg")} 
+                            width="500px"
+                            height="450px"
                             alt="profils pic" />
                         </div>
                     </div>
