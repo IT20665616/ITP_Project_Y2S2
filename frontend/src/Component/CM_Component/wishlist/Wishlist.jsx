@@ -58,7 +58,7 @@ function Wishlist() {
                             </div>
 
                             <div className="d-grid" style={{ marginLeft: 100, marginRight: 100, marginTop: 20 }}>
-                                <Link to="/" className="btn btn-warning">
+                                <Link to="/products" className="btn btn-warning">
                                     Continue Shopping
                                 </Link>
                             </div>
