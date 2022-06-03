@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { response } = require("express");
 const { create } = require("../../Models/MP_model/Customer_i");
-let Customer_i = require("../../Models/MP_model/Customer");
+let Customer_i = require("../../Models/MP_model/Customer_i");
 
 
 router.route("/add").post((req,res)=>{
@@ -11,7 +11,7 @@ router.route("/add").post((req,res)=>{
     const email = req.body.email;
     const inquiry = req.body.inquiry;
 
-    const newCustomer = new Customer_i({
+    const newCustomer_i = new Customer_i({
 
         first_name,
         last_name,
@@ -19,7 +19,7 @@ router.route("/add").post((req,res)=>{
         inquiry
     })
 
-    newCustomer.save().then(()=>{
+    newCustomer_i.save().then(()=>{
         res.json("inquiry Added")
     }).catch((err)=>{
         console.log(err);
@@ -46,18 +46,18 @@ router.route("/update/:id").put(async(req,res)=>{
         inquiry
     }
 
-    const update = await Customer.findByIdAndUpdate(userId,updateCustomer).then(()=>{
+    const update = await Customer_i.findByIdAndUpdate(userId,updateCustomer).then(()=>{
         res.status(200).send({status: "Inquiry Updated"})
     }).catch((err)=>{
         console.log(err);
-        res.status(500).send({status: "Error with updating data",error: err.message});
+        res.status(500).send({status: "Error with updating data",Customer_i:update});
     })  
 })
 
 router.route("/delete/:id").delete(async(req,res)=>{
     let userId = req.params.id;
 
-    await Customer.findByIdAndDelete(userId).then(()=>{
+    await Customer_i.findByIdAndDelete(userId).then(()=>{
         res.status(200).send({status: "Inquiry deleted"});
     }).catch((err)=>{
         console.log(err.message);
@@ -66,7 +66,7 @@ router.route("/delete/:id").delete(async(req,res)=>{
 })
 router.route("/get/:id").get(async(req,res)=>{
     let userId = req.params.id;  
-    const user = await Customer.findById(userId).then((customer)=>{
+    const user = await Customer_i.findById(userId).then((customer)=>{
         res.status(200).send({status: "User fetched",customer})
     }).catch(()=>{
         console.log(err.message);
